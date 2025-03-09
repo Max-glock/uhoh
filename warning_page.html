@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warning: External Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .warning-box {
+            border: 2px solid red;
+            padding: 20px;
+            display: inline-block;
+            background-color: #ffe6e6;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-box">
+        <h2>Warning!</h2>
+        <p>Now why did you click this link? Was it because you were told to do so? Was it because it was sent to you or posted on somebody's status? Or maybe it's because it's someone you can trust?.</p>
+        <p>Don't be quick to trust a link. Ensure it is safe before proceeding.</p>
+        <a id="proceed-link" class="btn">Proceed Anyway</a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetUrl = urlParams.get('url');
+        
+        if (targetUrl) {
+            document.getElementById('proceed-link').href = targetUrl;
+        } else {
+            document.getElementById('proceed-link').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
